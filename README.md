@@ -115,8 +115,10 @@ This project is licensed under the MIT License.
 
 Authors:
 
-Matt Vogelsang- GitHub Profile
-Kadeem King - GitHub Profile
+Matt Vogelsang- GitHub Profile,
+
+Kadeem King - GitHub Profile,
+
 Brian Soto - GitHub Profile
 
 Acknowledgments

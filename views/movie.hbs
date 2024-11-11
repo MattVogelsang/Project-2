@@ -1,0 +1,14 @@
+<h1>{{movie.Title}}</h1>
+<p>{{movie.Plot}}</p>
+<p><strong>IMDB Rating:</strong> {{movie.imdbRating}}</p>
+<img src="{{movie.Poster}}" alt="{{movie.Title}}" />
+
+<h2>Comments</h2>
+{{#each movie.Comments}}
+  <p>{{this.content}}</p>
+{{/each}}
+
+<form action="/comment" method="POST">
+  <textarea name="content" placeholder="Add your comment..."></textarea>
+  <button type="submit">Submit</button>
+</form>

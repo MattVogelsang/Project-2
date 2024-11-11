@@ -113,8 +113,9 @@ Admin Panel: For moderation of comments and management of content.
 License
 This project is licensed under the MIT License.
 
-Authors
-Matt Voge;sang- GitHub Profile
+Authors:
+
+Matt Vogelsang- GitHub Profile
 Kadeem King - GitHub Profile
 Brian Soto - GitHub Profile
 

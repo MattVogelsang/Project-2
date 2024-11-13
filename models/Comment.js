@@ -1,16 +1,42 @@
-module.exports = (sequelize, DataTypes) => {
-    const Comment = sequelize.define('Comment', {
-        content: {
-            type: DataTypes.TEXT,
-            allowNull:false,
-        },
-    });
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-    Comment.associate = function(models) {
-        Comment.belongsTo(models.Movie);
-        Comment.belongsTo(models.User);
-    };
+class Comment extends Model {}
 
-    return Comment;
+Comment.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+    movie_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'movie',
+        key: 'id',
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'comment',
+  }
+);
 
-};
+module.exports = Comment;

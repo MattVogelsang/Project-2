@@ -1,15 +1,42 @@
-module.exports = (sequelize, DataTypes) => {
-    const Rating = sequelize.define('Rating', {
-        rating: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-    });
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-    Rating.associate = function(models) {
-        Rating.belongsTo(models.Movie);
-        Rating.belongsTo(models.User);
-    };
+class Rating extends Model {}
 
-    return Rating;
-};
+Rating.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+    movie_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'movie',
+        key: 'id',
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'rating',
+  }
+);
+
+module.exports = Rating;

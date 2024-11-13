@@ -1,0 +1,13 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "A full-stack web application that allows users to browse, rate, and discuss movies and TV shows. Built using Node.js, Express, Handlebars.js, PostgreSQL, and Sequelize ORM, this platform integrates with the OMDb API to fetch detailed information about movies and TV shows. Users can sign up, log in, post reviews, and engage in discussions with others.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

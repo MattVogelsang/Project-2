@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Header and Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="/" class="navbar-brand">Movie & TV Show Platform</a>
+        
+        <ul class="navbar-links">
+          <li><a href="/">Home</a></li>
+
+          {{#if user}}
+            <li><a href="/profile">{{user.username}}</a></li>
+            <li><a href="/logout">Logout</a></li>
+          {{else}}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="content">
+    {{{body}}}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; {{currentYear}} Movie & TV Show Platform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/script.js"></script>
+</body>
+</html>

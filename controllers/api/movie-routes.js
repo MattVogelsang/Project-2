@@ -27,6 +27,7 @@ router.get('/:id', async(req, res) => {
     }
   });
 
+//http://localhost:3001/api/movies/
 router.post('/', async(req, res) => {
     try {const movieData= await Movie.create(req.body);
         res.status(200).json(movieData);
@@ -35,6 +36,7 @@ router.post('/', async(req, res) => {
     }
   });
 
+//http://localhost:3001/api/movies/1
 router.put('/:id', async(req, res) => {
     try{
       const movieData= await Movie.update(req.body,
@@ -49,10 +51,11 @@ router.put('/:id', async(req, res) => {
       res.status(500).json(err);
     }
   });
-
+  
+//http://localhost:3001/api/movies/1
 router.delete('/:id', async(req, res) => {
     try{
-      const movieData= await Category.destroy(
+      const movieData= await Movie.destroy(
       {
         where:{
           id:req.params.id

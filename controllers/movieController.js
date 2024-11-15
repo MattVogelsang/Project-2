@@ -4,7 +4,7 @@ const { Movie } = require('../models');
 router.get('/', async (req, res) => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
-      s: 'batman', // example search query
+      s: movie.title,
       apikey: process.env.OMDB_API_KEY,
     },
   });

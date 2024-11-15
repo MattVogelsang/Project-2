@@ -1,71 +1,67 @@
-const router= require('express').Router();
-const {User, Comment, Rating}= require('../../models'); 
+const express = require('express');
+const bcrypt = require('bcrypt');
+const router = express.Router();
+const { User } = require('../../models');
 
-//http://localhost:3001/api/users
-router.get('/', async(req, res) => {
-    try{
-        const userData= await User.findAll({
-            include:[{model: Comment}, {model: Rating}]
-        });
-        res.status(200).json(userData);
-    } catch (err) {
-    res.status(500).json(err);
+router.post('/signup', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+    const user = await User.create({
+      username,
+      email,
+      password
+    });
+    req.session.userId = user.id;
+    req.session.save(err => {
+      if (err) {
+        console.error('Session save error:', err);
+        return res.status(500).send('Failed to save session.');
+      }
+      res.redirect('/dashboard');
+    });
+  } catch (error) {
+    console.error('Signup error:', error);
+    res
+      .status(400)
+      .render('signup', { error: 'Signup failed. Please try again.' });
   }
 });
 
-//http://localhost:3001/api/users/1
-router.get('/:id', async(req, res) => {
-    try{
-      const userData= await User.findByPk(req.params.id,
-        {
-            include:[{model: Comment}, {model: Rating}]
-      }
-    );
-      res.status(200).json(userData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
 
-//http://localhost:3001/api/users/
-router.post('/', async(req, res) => {
-    try {const userData= await User.create(req.body);
-        res.status(200).json(userData);
-    } catch (err){
-        res.status(500).json(err)
+router.post('/login', async (req, res) => {
+  try {
+    console.log('Login request body:', req.body);
+    if (!req.body.email || !req.body.password) {
+      return res.status(400).json({ message: 'Missing required fields' });
     }
-  });
-
-//http://localhost:3001/api/users/1
-router.put('/:id', async(req, res) => {
-    try{
-      const userData= await User.update(req.body,
-      {
-        where:{
-          id:req.params.id
-        }
-      }
-    );
-      res.status(200).json(userData);
-    } catch (err) {
-      res.status(500).json(err);
+    const { email, password } = req.body;
+    const user = await User.findOne({ where: { email } });
+    if (user && await user.checkPassword(password)) {
+      req.session.userId = user.id;
+      req.session.logged_in = true;
+      req.session.message = 'You are now logged in!';
+      req.session.save(() => {
+        res.redirect('/dashboard');
+      });
+    } else {
+      res.status(400).json({ error: 'Invalid password or email.' });
     }
-  });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ error: 'Login failed. Please try again.' });
+  }
+});
 
-//http://localhost:3001/api/users/1
-router.delete('/:id', async(req, res) => {
-    try{
-      const userData= await User.destroy(
-      {
-        where:{
-          id:req.params.id
-        }
-      }
-    );
-      res.status(200).json(userData);
-    } catch (err) {
-      res.status(500).json(err);
+
+router.post('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Session destroy error:', err);
+      return res.redirect('/dashboard');
     }
+    res.clearCookie('connect.sid');
+    res.redirect('/login');
   });
+});
 
-module.exports= router;
+module.exports = router;

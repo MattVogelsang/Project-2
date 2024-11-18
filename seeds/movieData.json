@@ -1,0 +1,32 @@
+[
+    {
+        "title":"Spider-Man",
+        "description": "After a young Peter Parker gets bit by a spider, he gains super powers and becomes The Amazing",
+        "poster": "",
+        "imbdRating": "9.6"
+    },
+    {
+        "title":"Spider-Man 2",
+        "description": "A sequel to the first one.",
+        "poster": "",
+        "imbdRating": "10"
+    },
+    {
+        "title":"The Avengers",
+        "description": "A group of unlikely heroes team up to save the world.",
+        "poster": "",
+        "imbdRating": "9.8"
+    },
+    {
+        "title":"The Avengers 2",
+        "description": "When that same group of heroes team up yet again to save the world.",
+        "poster": "",
+        "imbdRating": "8.6"
+    },
+    {
+        "title":"Harry Potter",
+        "description": "When a young boy realizes he is a wizard, he must go attend a school for wizards to learn how to use magic.",
+        "poster": "",
+        "imbdRating": "9.2"
+    }
+]

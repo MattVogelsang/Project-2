@@ -1,29 +1,42 @@
-const express = require('express');
+const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const router = express.Router();
 const { User } = require('../../models');
 
+
+
 router.post('/signup', async (req, res) => {
+  // try {
+  //   const { username, email, password } = req.body;
+  //   const user = await User.create({
+  //     username,
+  //     email,
+  //     password
+  //   });
+  //   req.session.user_id = user.id;
+  //   req.session.save(err => {
+  //     if (err) {
+  //       console.error('Session save error:', err);
+  //       return res.status(500).send('Failed to save session.');
+  //     }
+  //     res.redirect('/dashboard');
+  //   });
+  // } catch (error) {
+  //   console.error('Signup error:', error);
+  //   res
+  //     .status(400)
+  //     .render('signup', { error: 'Signup failed. Please try again.' });
+  // }
   try {
-    const { username, email, password } = req.body;
-    const user = await User.create({
-      username,
-      email,
-      password
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
     });
-    req.session.userId = user.id;
-    req.session.save(err => {
-      if (err) {
-        console.error('Session save error:', err);
-        return res.status(500).send('Failed to save session.');
-      }
-      res.redirect('/dashboard');
-    });
-  } catch (error) {
-    console.error('Signup error:', error);
-    res
-      .status(400)
-      .render('signup', { error: 'Signup failed. Please try again.' });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
@@ -37,7 +50,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
     if (user && await user.checkPassword(password)) {
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       req.session.logged_in = true;
       req.session.message = 'You are now logged in!';
       req.session.save(() => {

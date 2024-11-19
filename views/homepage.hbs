@@ -1,0 +1,58 @@
+{{!-- views/homepage.hbs --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage - Movie & TV Show Platform</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Movie & TV Show Platform</h1>
+    <p>Browse popular movies and shows, rate them, and join the discussion!</p>
+  </header>
+
+  {{!-- Movie/TV Show List --}}
+  <section class="movie-list">
+    {{#each movies}}
+      <div class="movie-card">
+        <img src="{{this.poster}}" alt="{{this.title}} poster" class="movie-poster">
+        
+        <div class="movie-details">
+          <h2>{{this.title}}</h2>
+          <p><strong>Year:</strong> {{this.year}}</p>
+          <p><strong>IMDb Rating:</strong> {{this.imdbRating}}/10</p>
+          <p>{{this.description}}</p>
+
+          {{!-- View Details Button --}}
+          <a href="/movies/{{this.id}}" class="btn">View Details</a>
+
+          {{!-- Rating Button for Logged-in Users --}}
+          {{#if user}}
+            <form action="/movies/{{this.id}}/rate" method="POST" class="rate-form">
+              <label for="rating-{{this.id}}">Rate:</label>
+              <select name="rating" id="rating-{{this.id}}">
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+              </select>
+              <button type="submit" class="btn-rate">Submit</button>
+            </form>
+          {{else}}
+            <p class="login-reminder">Log in to rate this movie.</p>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </section>
+
+  {{!-- Footer --}}
+  <footer>
+    <p>&copy; {{currentYear}} Movie & TV Show Platform. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

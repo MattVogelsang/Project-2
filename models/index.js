@@ -13,7 +13,7 @@ Comment.belongsTo(Movie, {
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE', // If a user is deleted, their comments will also be deleted
+    onDelete: 'CASCADE',
 });
 
 Comment.belongsTo(User, {

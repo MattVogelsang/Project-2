@@ -1,24 +1,20 @@
 const axios = require('axios');
 const { Movie } = require('../models');
+const router= require('express').Router();
+require('dotenv').config();
 
 router.get('/', async (req, res) => {
-  const response = await axios.get('http://www.omdbapi.com/', {
-    params: {
-      s: movie.title,
-      apikey: process.env.OMDB_API_KEY,
-    },
-  });
-  res.render('index', { movies: response.data.Search });
+  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=Spider-man&api_key=${process.env.OMDB_API_KEY}`
+  );
+  console.log(response.data.results)
+  res.render('index', { movies: response.data.results });
 });
 
 router.get('/movie/:id', async (req, res) => {
-  const movieResponse = await axios.get('http://www.omdbapi.com/', {
-    params: {
-      i: req.params.id,
-      apikey: process.env.OMDB_API_KEY,
-    },
-  });
-  const movie = movieResponse.data;
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.OMDB_API_KEY}`
+  );
+  console.log(response)
+  const movie = response.data;
   res.render('movie', { movie });
 });
 

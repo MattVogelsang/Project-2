@@ -1,0 +1,27 @@
+[
+    {
+        "username":"mikescott33",
+        "email": "mikescott@email.com",
+        "password": "getlucky777"
+    },
+    {
+        "username":"philloy",
+        "email": "philloy@email.com",
+        "password": "password"
+    },
+    {
+        "username":"lujansolo",
+        "email": "dodgersfan1@email.com",
+        "password": "gododgers"
+    },
+    {
+        "username":"bestpilotever",
+        "email": "hansolo@email.com",
+        "password": "chewy234"
+    },
+    {
+        "username":"billybob",
+        "email": "billybob@email.com",
+        "password": "mommasboy1"
+    }
+]

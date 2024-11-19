@@ -1,7 +1,7 @@
-<h1>{{movie.Title}}</h1>
-<p>{{movie.Plot}}</p>
-<p><strong>IMDB Rating:</strong> {{movie.imdbRating}}</p>
-<img src="{{movie.Poster}}" alt="{{movie.Title}}" />
+<h1>{{movie.original_title}}</h1>
+<p>{{movie.overview}}</p>
+<p><strong>IMDB Rating:</strong> {{movie.vote_average}}</p>
+<img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.original_title}}" />
 
 <h2>Comments</h2>
 {{#each movie.Comments}}

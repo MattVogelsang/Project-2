@@ -1,11 +1,11 @@
 const router= require('express').Router();
-const {Movie, Comment, Rating}= require('../../models'); 
+const {Movie, Comment}= require('../../models'); 
 
 //http://localhost:3001/api/movies
 router.get('/', async(req, res) => {
     try{
         const movieData= await Movie.findAll({
-            include:[{model: Comment}, {model: Rating}]
+            include:[{model: Comment}]
         });
         res.status(200).json(movieData);
     } catch (err) {
@@ -18,7 +18,7 @@ router.get('/:id', async(req, res) => {
     try{
       const movieData= await Movie.findByPk(req.params.id,
         {
-            include:[{model: Comment}, {model: Rating}]
+            include:[{model: Comment}]
       }
     );
       res.status(200).json(movieData);

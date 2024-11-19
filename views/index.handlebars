@@ -1,0 +1,6 @@
+<h1>Movie Platform</h1>
+<ul>
+  {{#each movies}}
+    <li><a href="/movie/{{id}}">{{original_title}}</a><br><img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt=""></li>
+  {{/each}}
+</ul>

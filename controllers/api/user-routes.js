@@ -2,9 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
-
-
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
   // try {
   //   const { username, email, password } = req.body;
   //   const user = await User.create({
@@ -50,12 +48,13 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
     if (user && await user.checkPassword(password)) {
-      req.session.user_id = user.id;
-      req.session.logged_in = true;
-      req.session.message = 'You are now logged in!';
+      
       req.session.save(() => {
-        res.redirect('/dashboard');
+        req.session.user_id = user.id;
+      req.session.logged_in = true;
+      res.status(200).json({message: 'You are now logged in!'})
       });
+      
     } else {
       res.status(400).json({ error: 'Invalid password or email.' });
     }
@@ -73,7 +72,7 @@ router.post('/logout', (req, res) => {
       return res.redirect('/dashboard');
     }
     res.clearCookie('connect.sid');
-    res.redirect('/login');
+    res.status(200).json({message: "You are logged out"})
   });
 });
 

@@ -13,7 +13,24 @@
     <p>Browse popular movies and shows, rate them, and join the discussion!</p>
   </header>
 
-  {{!-- Movie/TV Show List --}}
+  
+{{!-- code for search bar  --}}
+<div class="search-container">
+  <form id="search-form">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search for movies or TV shows..."
+      required
+    />
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<div id="search-results" class="search-results"></div>
+{{!-- code for search bar  ^^^^ --}}
+
+{{!-- Movie/TV Show List --}}
   <section class="movie-list">
     {{#each movies}}
       <div class="movie-card">
@@ -53,6 +70,9 @@
   <footer>
     <p>&copy; {{currentYear}} Movie & TV Show Platform. All rights reserved.</p>
   </footer>
+
+  <script src="/public/scripts/search.js"></script>
+
 
 </body>
 </html>

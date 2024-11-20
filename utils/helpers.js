@@ -1,5 +1,5 @@
 module.exports = {
-    format_date: (date) => {
+    formatDate: (date) => {
         // Check if the date is valid before formatting
         if (!date) {
             return '';

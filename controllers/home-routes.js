@@ -1,39 +1,26 @@
 const router = require('express').Router();
-const { User, Comment , Movie } = require('../models');
+const { User } = require('../models');
+const bcrypt = require('bcrypt');
 const withAuth = require('../utils/auth');
 
 // Homepage route
-router.get('/', async (req, res) => {
-    try {
-        // Get all posts and join with user data
-        const postData = await Comment.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
-            ],
-        });
-
-        // Serialize data so the template can read it
-        const posts = postData.map(post => post.get({ plain: true }));
-
-        // Pass serialized data and session flag into template
-        res.render('homepage', {
-            posts,
-            loggedIn: req.session.loggedIn,
-        });
-    } catch (err) {
-        res.status(500).json(err);
+router.get('/', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (!req.session.logged_in) {
+        res.render('login');
+      return;
     }
-});
+  res.render("homepage", {logged_in: req.session.logged_in})
+  });
 
-// Create post route
-router.get('/create-post', withAuth, (req, res) => {
-    res.render('create-post', {
-        loggedIn: req.session.loggedIn
-    });
-});
+  router.get('/index', (req, res) => {
+ 
+    if (!req.session.logged_in) {
+        res.render('login');
+      return;
+    }
+    res.render('index', { movies: req.session.results });
+  });
 
 // Post details route by ID
 router.get('/post/:id', async (req, res) => {
@@ -65,20 +52,20 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
-// Dashboard route
-router.get('/dashboard', (req, res) => {
-    // If the user is not logged in, redirect to login page
-    if (!req.session.logged_in) {
-        return res.redirect('/login');
-    }
-    const message = req.query.message;
+// movies route
+// router.get('/movies', (req, res) => {
+//     // If the user is not logged in, redirect to login page
+//     if (!req.session.logged_in) {
+//         return res.redirect('/login');
+//     }
+//     const message = req.query.message;
 
-    // Render the dashboard with the success message if available
-    res.render('dashboard', {
-        loggedIn: req.session.logged_in,
-        message: message
-    });
-});
+//     // Render the dashboard with the success message if available
+//     res.render('movies', {
+//         loggedIn: req.session.logged_in,
+//         message: message
+//     });
+// });
 
 
 // Login route

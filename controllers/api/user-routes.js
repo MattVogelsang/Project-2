@@ -4,12 +4,13 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const { username, email, password } = req.body;
+
+    const userData= await User.create({ username, email, password });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
       res.status(200).json(userData);
     });
   } catch (err) {
@@ -26,14 +27,15 @@ router.post('/login', async (req, res) => {
     }
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
-    if (user && await user.checkPassword(password)) {
-      
+    if (user) {
+      if (!user.checkPassword(password)){
+        res.status(500).json({ error: 'Login failed. Please try again.' })
+      }
       req.session.save(() => {
         req.session.user_id = user.id;
-      req.session.logged_in = true;
-      res.status(200).json({message: 'You are now logged in!'})
+        req.session.logged_in = true;
+        res.status(200).json({ message: 'You are now logged in!' })
       });
-      
     } else {
       res.status(400).json({ error: 'Invalid password or email.' });
     }
@@ -48,10 +50,10 @@ router.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       console.error('Session destroy error:', err);
-      return res.redirect('/dashboard');
+      return res.redirect('/');
     }
     res.clearCookie('connect.sid');
-    res.status(200).json({message: "You are logged out"})
+    res.status(200).json({ message: "You are logged out" })
   });
 });
 

@@ -1,0 +1,32 @@
+[
+    {
+        "content":"Spider-Man",
+        "rating": "8",
+        "user_id": "1",
+        "movie_id": "557"
+    },
+    {
+        "content":"Spider-Man 2 is the best spiderman movie",
+        "rating": "10",
+        "user_id": "2",
+        "movie_id": "558"
+    },
+    {
+        "content":"Spider-Man 3 was good but couldve been better",
+        "rating": "7",
+        "user_id": "3",
+        "movie_id": "559"
+    },
+    {
+        "content":"Spider-Man 4 was alright...",
+        "rating": "6",
+        "user_id": "4",
+        "movie_id": "969681"
+    },
+    {
+        "content":"Spider-Man far from home was a great movie",
+        "rating": "9",
+        "user_id": "5",
+        "movie_id": "429617"
+    }
+]

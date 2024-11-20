@@ -133,3 +133,29 @@ body {
     padding: 1rem;
     margin-top: auto;
   }
+
+  .search-container {
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  #search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #search-form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #search-results {
+    margin-top: 20px;
+  }
+  

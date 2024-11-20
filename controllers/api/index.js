@@ -1,5 +1,5 @@
 const router= require('express').Router();
-const movieRoutes= require('./movie-routes');
+const movieRoutes= require('../movieRoutes');
 const userRoutes= require('./user-routes');
 const commentRoutes= require('./comment-routes');
 

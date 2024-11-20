@@ -11,25 +11,25 @@
 
   <header>
     <h1>{{username}}'s Profile</h1>
-    <p>Welcome back, {{user.username}}!</p>
+    <p>Welcome back, {{username}}!</p>
   </header>
 
   {{!-- User Details Section --}}
   <section class="user-details">
     <h2>Your Information</h2>
-    <p><strong>Email:</strong> {{user.email}}</p>
-    <p><strong>Member Since:</strong> {{formatDate}}</p>
+    <p><strong>Email:</strong> {{email}}</p>
+    {{!-- <p><strong>Member Since:</strong> {{formatDate}}</p> --}}
   </section>
 
   {{!-- User Comments Section --}}
   <section class="user-comments">
     <h2>Your Comments</h2>
-    {{#if user.comments.length}}
+    {{#if comments.length}}
       <ul class="comments-list">
-        {{#each user.comments}}
+        {{#each comments}}
           <li>
-            <strong>{{this.movie.original_title}}</strong> - {{this.commentText}} <br>
-            <em>Posted on: {{formatDate this.createdAt}}</em>
+            <strong>{{this.movie_id}}</strong> - {{this.content}} <br>
+            {{!-- <em>Posted on: {{formatDate this.createdAt}}</em> --}}
           </li>
         {{/each}}
       </ul>

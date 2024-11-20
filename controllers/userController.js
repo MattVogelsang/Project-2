@@ -1,4 +1,3 @@
-// controllers/userController.js
 const { User } = require('../models');
 const bcrypt = require('bcrypt');
 const express = require('express');

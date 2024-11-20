@@ -3,27 +3,6 @@ const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
-  // try {
-  //   const { username, email, password } = req.body;
-  //   const user = await User.create({
-  //     username,
-  //     email,
-  //     password
-  //   });
-  //   req.session.user_id = user.id;
-  //   req.session.save(err => {
-  //     if (err) {
-  //       console.error('Session save error:', err);
-  //       return res.status(500).send('Failed to save session.');
-  //     }
-  //     res.redirect('/dashboard');
-  //   });
-  // } catch (error) {
-  //   console.error('Signup error:', error);
-  //   res
-  //     .status(400)
-  //     .render('signup', { error: 'Signup failed. Please try again.' });
-  // }
   try {
     const userData = await User.create(req.body);
 

@@ -87,4 +87,12 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/profile', (req, res) => {
+    if (!req.session.logged_in) {
+        res.render('login');
+      return;
+    }
+  res.render('profile', {logged_in: req.session.logged_in})
+});
+
 module.exports = router;

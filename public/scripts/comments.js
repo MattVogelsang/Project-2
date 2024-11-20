@@ -13,9 +13,9 @@ const commentFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/'); 
+        document.location.replace('/profile'); 
       } else {
-        alert('Failed to sign up. Please try again.');
+        alert('Failed to add comment. Please try again.');
       }
     }
   };

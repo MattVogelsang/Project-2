@@ -33,6 +33,7 @@ router.get('/', (req, res) => {
 // });
 
 
+
 // Login route
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect to homepage
@@ -52,20 +53,19 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// Profile route
 router.get('/profile', withAuth, async (req, res) => {
     try{
         const userData= await User.findByPk(req.session.user_id, {
             include: Comment
         })
         let selectedUser= userData.get({plain:true})
-        console.log(selectedUser)
+        console.log(selectedUser) 
         res.render('profile', {...selectedUser, logged_in: req.session.logged_in})
     }
     catch(err){
         return res.status(500).json(err)
     }
-
-  
 });
 
 module.exports = router;

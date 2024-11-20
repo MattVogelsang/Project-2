@@ -26,8 +26,8 @@ Comment.init(
         key: 'id',
       },
     },
-    movie_id: {
-      type: DataTypes.INTEGER,
+    original_title: {
+      type: DataTypes.STRING,
     },
   },
   {

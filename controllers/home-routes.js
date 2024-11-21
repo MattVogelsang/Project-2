@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 // Login route
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect to homepage
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
@@ -46,7 +46,7 @@ router.get('/login', (req, res) => {
 
 // Signup route
 router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
@@ -65,6 +65,24 @@ router.get('/profile', withAuth, async (req, res) => {
     }
     catch(err){
         return res.status(500).json(err)
+    }
+});
+
+router.post('/signup', async (req, res) => {
+    try {
+        const newUser = await User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password, // Make sure to hash the password before saving
+        });
+
+        req.session.logged_in = true;
+        req.session.user_id = newUser.id;
+
+        res.redirect('/'); // Redirect to homepage after successful signup
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
     }
 });
 

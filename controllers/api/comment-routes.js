@@ -30,7 +30,7 @@ router.get('/:id', async(req, res) => {
 //http://localhost:3001/api/comments/
 router.post('/', async(req, res) => {
     try{
-      const commentData= await Comment.create(req.body);
+      const commentData= await Comment.create({...req.body, user_id:req.session.user_id});
       res.status(200).json(commentData);
     } catch (err) {
       res.status(500).json(err);

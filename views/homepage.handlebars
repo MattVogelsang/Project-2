@@ -34,16 +34,16 @@
   <section class="movie-list">
     {{#each movies}}
       <div class="movie-card">
-        <img src="{{this.poster}}" alt="{{this.title}} poster" class="movie-poster">
+        <img src="{{movie.poster_path}}" alt="{{movie.original_title}} poster" class="movie-poster">
         
         <div class="movie-details">
-          <h2>{{this.title}}</h2>
-          <p><strong>Year:</strong> {{this.year}}</p>
-          <p><strong>IMDb Rating:</strong> {{this.imdbRating}}/10</p>
-          <p>{{this.description}}</p>
+          <h2>{{movie.original_title}}</h2>
+          <p><strong>Year:</strong> {{movie.release_date}}</p>
+          <p><strong>IMDb Rating:</strong> {{movie.vote_average}}/10</p>
+          <p>{{movie.overview}}</p>
 
           {{!-- View Details Button --}}
-          <a href="/movies/{{this.id}}" class="btn">View Details</a>
+          <a href="/movies/{{movie.id}}" class="btn">View Details</a>
 
           {{!-- Rating Button for Logged-in Users --}}
           {{#if user}}

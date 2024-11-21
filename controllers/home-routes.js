@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Comment } = require('../models');
 const bcrypt = require('bcrypt');
 const withAuth = require('../utils/auth');
 
@@ -13,44 +13,9 @@ router.get('/', (req, res) => {
   res.render("homepage", {logged_in: req.session.logged_in})
   });
 
-  router.get('/index', (req, res) => {
- 
-    if (!req.session.logged_in) {
-        res.render('login');
-      return;
-    }
+  router.get('/index', withAuth, (req, res) => {
     res.render('index', { movies: req.session.results });
   });
-
-// Post details route by ID
-router.get('/post/:id', async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                { model: User, attributes: ['username'] },
-                {
-                    model: Comment,
-                    include: [{ model: User, attributes: ['username'] }],
-                },
-            ],
-        });
-
-        if (!postData) {
-            res.status(404).json({ message: 'Post not found' });
-            return;
-        }
-
-        // Serialize the post data
-        const post = postData.get({ plain: true });
-
-        res.render('post', {
-            ...post,
-            loggedIn: req.session.loggedIn
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 // movies route
 // router.get('/movies', (req, res) => {
@@ -66,6 +31,7 @@ router.get('/post/:id', async (req, res) => {
 //         message: message
 //     });
 // });
+
 
 
 // Login route
@@ -85,6 +51,21 @@ router.get('/signup', (req, res) => {
         return;
     }
     res.render('signup');
+});
+
+// Profile route
+router.get('/profile', withAuth, async (req, res) => {
+    try{
+        const userData= await User.findByPk(req.session.user_id, {
+            include: Comment
+        })
+        let selectedUser= userData.get({plain:true})
+        console.log(selectedUser) 
+        res.render('profile', {...selectedUser, logged_in: req.session.logged_in})
+    }
+    catch(err){
+        return res.status(500).json(err)
+    }
 });
 
 module.exports = router;

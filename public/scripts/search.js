@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Handle form submission
     searchForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); // Prevent form reload
+      event.preventDefault();
   
       const query = searchInput.value.trim();
   

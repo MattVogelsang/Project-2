@@ -5,21 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{username}}'s Profile</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/styles/profile.css">
 </head>
 <body>
 
-  <header>
+  <div class="welcome">
     <h1>{{username}}'s Profile</h1>
     <p>Welcome back, {{username}}!</p>
-  </header>
-
-  {{!-- User Details Section --}}
-  <section class="user-details">
-    <h2>Your Information</h2>
     <p><strong>Email:</strong> {{email}}</p>
-    {{!-- <p><strong>Member Since:</strong> {{formatDate}}</p> --}}
-  </section>
+  </div>
 
   {{!-- User Comments Section --}}
   <section class="user-comments">
@@ -44,10 +38,6 @@
       <button type="submit" class="btn-logout">Logout</button>
     </form>
   </section>
-
-  <footer>
-    <p>&copy; {{currentYear}} Movie & TV Show Platform. All rights reserved.</p>
-  </footer>
 
 </body>
 </html>

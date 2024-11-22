@@ -1,5 +1,7 @@
 # Movie & TV Show Rating and Discussion Platform
 
+<img src="/img/movieraterhomepage.png">
+
 A full-stack web application that allows users to browse, rate, and discuss movies and TV shows. Built using Node.js, Express, Handlebars.js, PostgreSQL, and Sequelize ORM, this platform integrates with the OMDb API to fetch detailed information about movies and TV shows. Users can sign up, log in, post reviews, and engage in discussions with others.
 
 Table of Contents
@@ -114,6 +116,8 @@ License
 This project is licensed under the MIT License.
 
 Authors:
+
+Render Link:
 
 Matt Vogelsang- GitHub Profile,
 

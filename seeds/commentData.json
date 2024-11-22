@@ -1,0 +1,45 @@
+[
+    {
+      "userId": 1,
+      "movieId": 1,
+      "commentText": "Amazing movie! The storyline was so engaging.",
+      "createdAt": "2024-11-18T10:30:00Z",
+      "updatedAt": "2024-11-18T10:30:00Z"
+    },
+    {
+      "userId": 2,
+      "movieId": 1,
+      "commentText": "I enjoyed the cinematography, but the plot could have been better.",
+      "createdAt": "2024-11-18T11:00:00Z",
+      "updatedAt": "2024-11-18T11:00:00Z"
+    },
+    {
+      "userId": 3,
+      "movieId": 2,
+      "commentText": "The performances were outstanding. Highly recommend!",
+      "createdAt": "2024-11-17T15:45:00Z",
+      "updatedAt": "2024-11-17T15:45:00Z"
+    },
+    {
+      "userId": 1,
+      "movieId": 2,
+      "commentText": "Good movie overall, but it lacked a solid ending.",
+      "createdAt": "2024-11-16T18:20:00Z",
+      "updatedAt": "2024-11-16T18:20:00Z"
+    },
+    {
+      "userId": 2,
+      "movieId": 3,
+      "commentText": "Not what I expected, but the twists were great!",
+      "createdAt": "2024-11-15T22:10:00Z",
+      "updatedAt": "2024-11-15T22:10:00Z"
+    },
+    {
+      "userId": 3,
+      "movieId": 3,
+      "commentText": "The pacing was slow, but it picked up towards the end.",
+      "createdAt": "2024-11-14T14:50:00Z",
+      "updatedAt": "2024-11-14T14:50:00Z"
+    }
+  ]
+  

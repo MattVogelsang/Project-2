@@ -4,11 +4,25 @@
 <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.original_title}}" />
 
 <h2>Comments</h2>
-{{#each movie.Comments}}
-  <p>{{this.content}}</p>
+{{#each Comments}}
+<p>{{this.content}}</p>
 {{/each}}
 
-<form action="/comment" method="POST">
-  <textarea name="content" placeholder="Add your comment..."></textarea>
+<form class="post-comment" data-id="{{movie.original_title}}">
+  <textarea name="content" id="content" placeholder="Add your comment..."></textarea>
+  <select name="" id="rating">
+    <option value="1">1 Star</option>
+    <option value="2">2 Stars</option>
+    <option value="3">3 Stars</option>
+    <option value="4">4 Stars</option>
+    <option value="5">5 Stars</option>
+    <option value="6">6 Stars</option>
+    <option value="7">7 Stars</option>
+    <option value="8">8 Stars</option>
+    <option value="9">9 Stars</option>
+    <option value="10">10 Stars</option>
+  </select>
   <button type="submit">Submit</button>
 </form>
+
+<script src="/scripts/comments.js"></script>

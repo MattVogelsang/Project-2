@@ -11,19 +11,19 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    original_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    overview: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    poster: {
+    poster_path: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    imbdRating: {
+    vote_average: {
       type: DataTypes.FLOAT,
       allowNull: true,
     },

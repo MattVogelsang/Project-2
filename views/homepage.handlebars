@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage - Movie & TV Show Platform</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Homepage - Movie Platform</title>
+  <link rel="stylesheet" href="/styles/homepage.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to Movie & TV Show Platform</h1>
-    <p>Browse popular movies and shows, rate them, and join the discussion!</p>
-  </header>
+  <div>
+    <h1>Welcome to MovieRater</h1>
+    <p>Browse popular movies, rate them and join the discussion!</p>
+  </div>
 
   
 {{!-- code for search bar  --}}
@@ -20,7 +20,7 @@
     <input
       type="text"
       id="search-input"
-      placeholder="Search for movies or TV shows..."
+      placeholder="Search for movies..."
       required
     />
     <button type="submit">Search</button>
@@ -34,16 +34,16 @@
   <section class="movie-list">
     {{#each movies}}
       <div class="movie-card">
-        <img src="{{this.poster}}" alt="{{this.title}} poster" class="movie-poster">
+        <img src="{{movie.poster_path}}" alt="{{movie.original_title}} poster" class="movie-poster">
         
         <div class="movie-details">
-          <h2>{{this.title}}</h2>
-          <p><strong>Year:</strong> {{this.year}}</p>
-          <p><strong>IMDb Rating:</strong> {{this.imdbRating}}/10</p>
-          <p>{{this.description}}</p>
+          <h2>{{movie.original_title}}</h2>
+          <p><strong>Year:</strong> {{movie.release_date}}</p>
+          <p><strong>IMDb Rating:</strong> {{movie.vote_average}}/10</p>
+          <p>{{movie.overview}}</p>
 
           {{!-- View Details Button --}}
-          <a href="/movies/{{this.id}}" class="btn">View Details</a>
+          <a href="/movies/{{movie.id}}" class="btn">View Details</a>
 
           {{!-- Rating Button for Logged-in Users --}}
           {{#if user}}
@@ -55,6 +55,11 @@
                 <option value="3">3 Stars</option>
                 <option value="4">4 Stars</option>
                 <option value="5">5 Stars</option>
+                <option value="6">6 Stars</option>
+                <option value="7">7 Stars</option>
+                <option value="8">8 Stars</option>
+                <option value="9">9 Stars</option>
+                <option value="10">10 Stars</option>
               </select>
               <button type="submit" class="btn-rate">Submit</button>
             </form>
@@ -67,11 +72,11 @@
   </section>
 
   {{!-- Footer --}}
-  <footer>
+  {{!-- <footer>
     <p>&copy; {{currentYear}} Movie & TV Show Platform. All rights reserved.</p>
-  </footer>
+  </footer> --}}
 
-  <script src="/public/scripts/search.js"></script>
+  <script src="/scripts/search.js"></script>
 
 
 </body>

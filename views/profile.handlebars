@@ -4,48 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{user.username}}'s Profile</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>{{username}}'s Profile</title>
+  <link rel="stylesheet" href="/styles/profile.css">
 </head>
 <body>
 
-  <header>
-    <h1>{{user.username}}'s Profile</h1>
-    <p>Welcome back, {{user.username}}!</p>
-  </header>
-
-  {{!-- User Details Section --}}
-  <section class="user-details">
-    <h2>Your Information</h2>
-    <p><strong>Email:</strong> {{user.email}}</p>
-    <p><strong>Member Since:</strong> {{formatDate user.createdAt}}</p>
-  </section>
-
-  {{!-- User Ratings Section --}}
-  <section class="user-ratings">
-    <h2>Your Ratings</h2>
-    {{#if user.ratings.length}}
-      <ul class="ratings-list">
-        {{#each user.ratings}}
-          <li>
-            <strong>{{this.movie.title}}</strong> - Rated: {{this.rating}}/5 stars
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>You haven’t rated any movies yet. Start exploring to rate your favorites!</p>
-    {{/if}}
-  </section>
+  <div class="welcome">
+    <h1>{{username}}'s Profile</h1>
+    <p>Welcome back, {{username}}!</p>
+    <p><strong>Email:</strong> {{email}}</p>
+  </div>
 
   {{!-- User Comments Section --}}
   <section class="user-comments">
     <h2>Your Comments</h2>
-    {{#if user.comments.length}}
+    {{#if comments.length}}
       <ul class="comments-list">
-        {{#each user.comments}}
+        {{#each comments}}
           <li>
-            <strong>{{this.movie.title}}</strong> - {{this.commentText}} <br>
-            <em>Posted on: {{formatDate this.createdAt}}</em>
+            <a href="/movie">{{movie.original_title}}</a> - {{this.content}} - Rating: {{this.rating}}/10 <br>
+            {{!-- <em>Posted on: {{formatDate this.createdAt}}</em> --}}
           </li>
         {{/each}}
       </ul>
@@ -61,9 +39,6 @@
     </form>
   </section>
 
-  <footer>
-    <p>&copy; {{currentYear}} Movie & TV Show Platform. All rights reserved.</p>
-  </footer>
-
 </body>
 </html>
+

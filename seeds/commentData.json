@@ -1,45 +1,32 @@
 [
     {
-      "userId": 1,
-      "movieId": 1,
-      "commentText": "Amazing movie! The storyline was so engaging.",
-      "createdAt": "2024-11-18T10:30:00Z",
-      "updatedAt": "2024-11-18T10:30:00Z"
+        "content":"Spider-Man is great movie to watch",
+        "rating": "8",
+        "user_id": "1",
+        "original_title": "Spider-Man"
     },
     {
-      "userId": 2,
-      "movieId": 1,
-      "commentText": "I enjoyed the cinematography, but the plot could have been better.",
-      "createdAt": "2024-11-18T11:00:00Z",
-      "updatedAt": "2024-11-18T11:00:00Z"
+        "content":"Spider-Man 3 is the best spiderman movie, Venom was so awesome",
+        "rating": "10",
+        "user_id": "2",
+        "original_title": "Spider-Man 3"
     },
     {
-      "userId": 3,
-      "movieId": 2,
-      "commentText": "The performances were outstanding. Highly recommend!",
-      "createdAt": "2024-11-17T15:45:00Z",
-      "updatedAt": "2024-11-17T15:45:00Z"
+        "content":"Spider-Man 3 was good but couldve been better",
+        "rating": "7",
+        "user_id": "3",
+        "original_title": "Spider-Man: Into the Spider-Verse"
     },
     {
-      "userId": 1,
-      "movieId": 2,
-      "commentText": "Good movie overall, but it lacked a solid ending.",
-      "createdAt": "2024-11-16T18:20:00Z",
-      "updatedAt": "2024-11-16T18:20:00Z"
+        "content":"No Way Home was the best in the franchise!",
+        "rating": "10",
+        "user_id": "4",
+        "original_title": "Spider-Man: No Way Home"
     },
     {
-      "userId": 2,
-      "movieId": 3,
-      "commentText": "Not what I expected, but the twists were great!",
-      "createdAt": "2024-11-15T22:10:00Z",
-      "updatedAt": "2024-11-15T22:10:00Z"
-    },
-    {
-      "userId": 3,
-      "movieId": 3,
-      "commentText": "The pacing was slow, but it picked up towards the end.",
-      "createdAt": "2024-11-14T14:50:00Z",
-      "updatedAt": "2024-11-14T14:50:00Z"
+        "content":"This was my favorite spiderman movie",
+        "rating": "9",
+        "user_id": "5",
+        "original_title": "Spider-Man: Across the Spider-Verse"
     }
-  ]
-  
+]

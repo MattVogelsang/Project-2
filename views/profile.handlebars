@@ -1,0 +1,44 @@
+{{!-- views/profile.hbs --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{username}}'s Profile</title>
+  <link rel="stylesheet" href="/styles/profile.css">
+</head>
+<body>
+
+  <div class="welcome">
+    <h1>{{username}}'s Profile</h1>
+    <p>Welcome back, {{username}}!</p>
+    <p><strong>Email:</strong> {{email}}</p>
+  </div>
+
+  {{!-- User Comments Section --}}
+  <section class="user-comments">
+    <h2>Your Comments</h2>
+    {{#if comments.length}}
+      <ul class="comments-list">
+        {{#each comments}}
+          <li>
+            <a href="/movie">{{movie.original_title}}</a> - {{this.content}} - Rating: {{this.rating}}/10 <br>
+            {{!-- <em>Posted on: {{formatDate this.createdAt}}</em> --}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>You haven’t commented on any movies yet. Join the conversation by leaving your thoughts on a movie!</p>
+    {{/if}}
+  </section>
+
+  {{!-- Logout Button --}}
+  <section class="logout">
+    <form action="/logout" method="POST">
+      <button type="submit" class="btn-logout">Logout</button>
+    </form>
+  </section>
+
+</body>
+</html>
+

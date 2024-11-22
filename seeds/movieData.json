@@ -1,0 +1,32 @@
+[
+    {
+        "original_title":"Spider-Man",
+        "overview": "After a young Peter Parker gets bit by a spider, he gains super powers and becomes The Amazing",
+        "poster_path": "",
+        "vote_average": "9.6"
+    },
+    {
+        "original_title":"Spider-Man 2",
+        "overview": "A sequel to the first one.",
+        "poster_path": "",
+        "vote_average": "10"
+    },
+    {
+        "original_title":"The Avengers",
+        "overview": "A group of unlikely heroes team up to save the world.",
+        "poster_path": "",
+        "vote_average": "9.8"
+    },
+    {
+        "original_title":"The Avengers 2",
+        "overview": "When that same group of heroes team up yet again to save the world.",
+        "poster_path": "",
+        "vote_average": "8.6"
+    },
+    {
+        "original_title":"Harry Potter",
+        "overview": "When a young boy realizes he is a wizard, he must go attend a school for wizards to learn how to use magic.",
+        "poster_path": "",
+        "vote_average": "9.2"
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "content":"Spider-Man is great movie to watch",
+        "rating": "8",
+        "user_id": "1",
+        "original_title": "Spider-Man"
+    },
+    {
+        "content":"Spider-Man 3 is the best spiderman movie, Venom was so awesome",
+        "rating": "10",
+        "user_id": "2",
+        "original_title": "Spider-Man 3"
+    },
+    {
+        "content":"Spider-Man 3 was good but couldve been better",
+        "rating": "7",
+        "user_id": "3",
+        "original_title": "Spider-Man: Into the Spider-Verse"
+    },
+    {
+        "content":"No Way Home was the best in the franchise!",
+        "rating": "10",
+        "user_id": "4",
+        "original_title": "Spider-Man: No Way Home"
+    },
+    {
+        "content":"This was my favorite spiderman movie",
+        "rating": "9",
+        "user_id": "5",
+        "original_title": "Spider-Man: Across the Spider-Verse"
+    }
+]

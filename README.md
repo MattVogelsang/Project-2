@@ -1,36 +1,43 @@
 # Movie & TV Show Rating and Discussion Platform
 
+ <a href='https://movie-rater-6qos.onrender.com/' >Render Link For Movie Rater </a>
+
+## Description 
+
 A full-stack web application that allows users to browse, rate, and discuss movies and TV shows. Built using Node.js, Express, Handlebars.js, PostgreSQL, and Sequelize ORM, this platform integrates with the OMDb API to fetch detailed information about movies and TV shows. Users can sign up, log in, post reviews, and engage in discussions with others.
 
-Table of Contents
-Features
-Technologies Used
-Setup Instructions
-Usage
-Screenshots
-Future Development
-License
-Features
+## Table of Contents
+
+- [Features](#Features)
+- [Usage](#Features)
+- [Screenshots](#Screenshots)
+- [Future Development](#Features)
+- [License](#Features)
+- [Authors](Authors)
+- [Acknowledgments](Acknowledgments)
+
+## Features
+
 User Authentication: Sign up, log in, and log out functionality for secure access.
-Movie and TV Show Information: Fetches movie and show details from the OMDb API.
+Movie and TV Show Information: Fetches movie and show details from the TMDb API.
 Rating System: Users can rate movies and TV shows, and view average ratings.
 Discussion Feature: Users can post comments on movies and TV shows, creating a community discussion.
 Responsive Design: A clean, responsive UI optimized for both desktop and mobile use.
 Technologies Used
-Backend:
 
+Backend:
 Node.js
 Express.js
 PostgreSQL
 Sequelize ORM
-OMDb API (for movie and TV show data)
-Frontend:
+TMDb API (for movie and TV show data)
 
+Frontend:
 Handlebars.js (templating engine)
 HTML5/CSS3
 JavaScript (for interactivity)
-Authentication:
 
+Authentication:
 express-session
 bcrypt
 Deployment:
@@ -77,9 +84,9 @@ Start the application:
 bash
 Copy code
 npm start
-Open your browser and navigate to http://localhost:3000 to view the application.
+Open your browser and navigate to http://localhost:3001 to view the application.
 
-Usage
+## Usage
 Main Features:
 Browse Movies and TV Shows:
 
@@ -90,38 +97,43 @@ Sign Up / Log In:
 Users must create an account and log in to post ratings and comments.
 Rate Movies and TV Shows:
 
-Users can leave a rating (1-5 stars) for each movie or TV show.
+Users can leave a rating (1-10 stars) for each movie or TV show.
 The average rating is displayed on each movie's detail page.
 Post Comments and Discuss:
 
 Users can post comments on movie pages to start discussions.
 Comments are displayed in a threaded format on each movie's detail page.
-Screenshots
+## Screenshots
 Home Page
+![alt](./img/movieraterhomepage.png)
 
-Movie Detail Page
+Login 
+![alt](./img/movieraterlogin.png)
 
-User Authentication
 
-Future Development
+## Future Development
 Planned enhancements for the platform include:
 
 Recommendation System: Suggest movies or shows based on user ratings and preferences.
 Advanced Search and Filter Options: Add genre, release date, and rating filters.
 Social Features: Allow users to follow others and view a feed of their friends' ratings and comments.
 Admin Panel: For moderation of comments and management of content.
-License
+
+## License
 This project is licensed under the MIT License.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Authors:
+## Authors:
 
-Matt Vogelsang- GitHub Profile,
+Matt Vogelsang- <a href='https://github.com/MattVogelsang'> GitHub Profile </a>
 
-Kadeem King - GitHub Profile,
+Kadeem King - <a href='https://github.com/Kadeemking'> GitHub Profile </a>
 
-Brian Soto - GitHub Profile
+Brian Soto - <a href='https://github.com/briansotolago'> GitHub Profile </a>
 
-Acknowledgments
-OMDb API for providing movie data.
+## Acknowledgments
+<a href='https://www.themoviedb.org/'> TMDb API  </a> for providing movie data. 
+
 The Full-Stack Bootcamp for guidance and support.
+
 This README provides a professional summary of the Movie & TV Show Rating and Discussion Platform, with easy-to-follow setup instructions and descriptions of key features.

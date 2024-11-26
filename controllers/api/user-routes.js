@@ -22,11 +22,11 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     console.log('Login request body:', req.body);
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.username || !req.body.password) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
-    const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const { username, password } = req.body;
+    const user = await User.findOne({ where: { username } });
     if (user) {
       if (!user.checkPassword(password)){
         res.status(500).json({ error: 'Login failed. Please try again.' })

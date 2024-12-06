@@ -4,13 +4,13 @@ let sequelize;
 console.log(process.env.DB_URL)
 if (process.env.DB_URL) {
   sequelize = new Sequelize(process.env.DB_URL, {
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false // Helps prevent SSL certificate validation issues
-      }
-    }
+    // dialect: 'postgres',
+    // dialectOptions: {
+    //   ssl: {
+    //     require: true,
+    //     rejectUnauthorized: false // Helps prevent SSL certificate validation issues
+    //   }
+    // }
   });
 } else {
   sequelize = new Sequelize(

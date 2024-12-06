@@ -3,7 +3,8 @@ require('dotenv').config();
 let sequelize;
 console.log(process.env.DB_URL)
 if (process.env.DB_URL) {
-  sequelize = new Sequelize(process.env.DB_URL, {
+  sequelize = new Sequelize(process.env.DB_URL
+    // , {
     // dialect: 'postgres',
     // dialectOptions: {
     //   ssl: {
@@ -11,7 +12,8 @@ if (process.env.DB_URL) {
     //     rejectUnauthorized: false // Helps prevent SSL certificate validation issues
     //   }
     // }
-  });
+  // }
+);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,

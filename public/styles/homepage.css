@@ -88,7 +88,7 @@ body {
   }
   
   /* Movie Cards */
-  .movie-card {
+  /*.movie-card {
     background-color: #2A2D34;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -135,7 +135,7 @@ body {
   
   .movie-card .btn:hover {
     background-color: #5E99B1;
-  }
+  } */
   
   /* Rate Form */
   .rate-form {

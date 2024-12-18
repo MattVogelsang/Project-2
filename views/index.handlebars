@@ -1,6 +1,18 @@
-<h1>Movie Platform</h1>
-<ul>
+<head>
+  <link rel="stylesheet" href="/styles/index.css">
+</head>
+
+<h1>Results</h1>
+<div class="search-results">
   {{#each movies}}
-    <li><a href="/movies/{{id}}">{{original_title}}</a><br><img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt=""></li>
+    <div class="movie-card">
+      <img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{original_title}} poster" class="movie-poster">
+      <div class="movie-details">
+        <h2>{{original_title}}</h2>
+        <p><strong>Year:</strong> {{release_date}}</p>
+        <p><strong>Average Rating:</strong> {{vote_average}}/10</p>
+        <a href="/movies/{{id}}" class="btn">View Details</a>
+      </div>
+    </div>
   {{/each}}
-</ul>
+</div>

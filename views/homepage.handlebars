@@ -16,10 +16,11 @@
   
 {{!-- code for search bar  --}}
 <div class="search-container">
-  <form id="search-form">
+  <form id="search-form" action="/search" method="GET">
     <input
       type="text"
       id="search-input"
+      name="query"
       placeholder="Search for movies..."
       required
     />
@@ -39,7 +40,7 @@
         <div class="movie-details">
           <h2>{{movie.original_title}}</h2>
           <p><strong>Year:</strong> {{movie.release_date}}</p>
-          <p><strong>IMDb Rating:</strong> {{movie.vote_average}}/10</p>
+          <p><strong>Average Rating:</strong> {{movie.vote_average}}/10</p>
           <p>{{movie.overview}}</p>
 
           {{!-- View Details Button --}}
